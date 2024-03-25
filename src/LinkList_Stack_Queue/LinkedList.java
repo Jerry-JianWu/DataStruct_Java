@@ -1,4 +1,4 @@
-package 表_栈_队列;
+package LinkList_Stack_Queue;
 
 class Node{
     int data;
