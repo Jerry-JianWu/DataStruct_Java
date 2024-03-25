@@ -53,4 +53,18 @@ public class ArrayStack<E> {
         int newSize = elementData.length * 2;
         elementData = Arrays.copyOf(elementData, newSize);
     }
+
+
+    public static void main(String[] args) {
+        ArrayStack<Integer> stack = new ArrayStack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        System.out.println("The top element is: " + stack.peek()); // 查看栈顶元素
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop()); // 弹栈并打印元素
+        }
+    }
 }
