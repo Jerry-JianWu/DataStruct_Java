@@ -5,7 +5,7 @@ import java.util.*;
 public class groupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
-        for (String s : Strs){
+        for (String s : strs){
             // 字符串转换为字符数组，然后排序
             char[] charArray = s.toCharArray();
             Arrays.sort(charArray);
