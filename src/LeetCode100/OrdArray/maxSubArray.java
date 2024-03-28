@@ -1,4 +1,4 @@
-package OrdArray;
+package LeetCode100.OrdArray;
 
 public class maxSubArray {
     // 动态规划，遍历数组的同时，计算当前位置的最大子序列和
