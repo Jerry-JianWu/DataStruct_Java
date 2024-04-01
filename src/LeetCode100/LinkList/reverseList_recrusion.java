@@ -18,6 +18,7 @@ public class reverseList_recrusion {
             head.next.next = head;
             // 将当前节点的next置空
             head.next = null;
+            // newHead为反转链表的头
             return newHead;
         }
     }
