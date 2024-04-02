@@ -31,7 +31,7 @@ public class isPalindrome {
             }
             int end = vals.size() - 1;
             // 使用头尾双指针判断是否回文
-            for(int start = 0; start < end; start++){
+            for(int start = 0; start < end; start++, end--){
                 if(!vals.get(start).equals(vals.get(end))){
                     return false;
                 }
