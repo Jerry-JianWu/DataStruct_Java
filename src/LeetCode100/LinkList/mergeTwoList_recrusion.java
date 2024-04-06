@@ -1,22 +1,6 @@
 package LeetCode100.LinkList;
 
 public class mergeTwoList_recrusion {
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
     class Solution {
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
             // 递归表示，同样要判断l1与l2的val大小根据大小判断返回哪一个

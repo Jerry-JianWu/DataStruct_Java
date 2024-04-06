@@ -1,24 +1,5 @@
 package LeetCode100.LinkList;
-
 public class addTwoNumbers {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     // 要考虑进位，数字长度不相等的情况
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

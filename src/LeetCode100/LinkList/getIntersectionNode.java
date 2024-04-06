@@ -1,16 +1,6 @@
 package LeetCode100.LinkList;
 
 public class getIntersectionNode {
-
-     // Definition for singly-linked list.
-      public class ListNode {
-          int val;
-          ListNode next;
-          ListNode(int x) {
-              val = x;
-              next = null;
-          }
-      }
     public class Solution {
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
             // 两个指针初始化指向两个链表的头节点

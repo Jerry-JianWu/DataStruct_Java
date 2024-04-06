@@ -1,14 +1,6 @@
 package LeetCode100.LinkList;
 
 public class hasCycle1 {
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
     // 快慢指针法
     public class Solution {
         public boolean hasCycle(ListNode head) {

@@ -3,16 +3,6 @@ package LeetCode100.LinkList;
 import java.util.List;
 
 public class reverseList_iteration {
-
-     // Definition for singly-linked list.
-      public class ListNode {
-          int val;
-          ListNode next;
-          ListNode() {}
-          ListNode(int val) { this.val = val; }
-          ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-      }
-
      //1.迭代法
  class Solution {
      public ListNode reverseList(ListNode head) {

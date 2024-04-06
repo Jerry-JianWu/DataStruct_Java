@@ -1,14 +1,6 @@
 package LeetCode100.LinkList;
 
 public class hasCycle2 {
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
     public class Solution {
         public ListNode detectCycle(ListNode head) {
             // 快慢指针先判断有无环，有环则将一个指针指到头节点重新遍历，相遇即为第一个进入环的节点
