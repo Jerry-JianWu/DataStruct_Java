@@ -1,6 +1,5 @@
 package review.Array;
 
-import jdk.nashorn.internal.parser.JSONParser;
 
 public class rotate {
     class Solution {
