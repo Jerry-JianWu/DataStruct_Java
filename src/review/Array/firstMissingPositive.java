@@ -2,33 +2,27 @@ package review.Array;
 
 public class firstMissingPositive {
     class Solution {
-        public int[] productExceptSelf(int[] nums) {
-            // 创建一个answer数组记录答案，先记录左乘积，在利用变量记录右乘积，两个乘积都是除自身以外的左右乘积先后两次分别从左从右遍历
-            int[] answer = new int[nums.length];
-            answer[0] = 1;
-            for (int i = 1; i < nums.length; i++) {
-                answer[i] = answer[i - 1] * nums[i - 1];
+        public int firstMissingPositive(int[] nums) {
+            int n = nums.length;
+            for (int i = 0; i < n; i++) {
+                // while循环是因为交换后，新换到i位置的元素也可能不在正确的位置
+                while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+                    // 将nums[i]放到正确的位置上，即数值x应该放在索引x-1的位置
+                    int temp = nums[nums[i] - 1];
+                    nums[nums[i] - 1] = nums[i];
+                    nums[i] = temp;
+                }
             }
-            int r = 1;
-            for (int i = nums.length - 1; i >= 0; i--){
-                answer[i] = r * answer[i];
-                r = r * nums[i];
+            // 再次遍历，找到第一个位置不正确的元素
+            for (int i = 0; i < n; i++) {
+                if (nums[i] != i + 1) {
+                    return i + 1;
+                }
             }
-            return answer;
-
+            // 前n个都正确则返回n+1
+            return n + 1;
         }
     }
 
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4};
-        firstMissingPositive outer = new firstMissingPositive();
-        Solution solution = outer.new Solution();
-        int[] result = solution.productExceptSelf(nums);
-
-        System.out.println("Result:");
-        for (int value : result) {
-            System.out.print(value + " ");
-        }
-        }
-    }
+}
 
