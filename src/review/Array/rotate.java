@@ -13,9 +13,10 @@ public class rotate {
             // 反转剩余n-k个
             reverse(nums, k, n - 1);
         }
+
         // 交换头尾
-        private void reverse(int[] nums, int start, int end){
-            while(start < end){
+        private void reverse(int[] nums, int start, int end) {
+            while (start < end) {
                 int temp = nums[start];
                 nums[start] = nums[end];
                 nums[end] = temp;
@@ -26,12 +27,12 @@ public class rotate {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5,6,7};
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
         int k = 3;
         rotate outer = new rotate();
         Solution solution = outer.new Solution();
         solution.rotate(nums, k);
-        for(int num : nums){
+        for (int num : nums) {
             System.out.println(num + " ");
         }
     }
