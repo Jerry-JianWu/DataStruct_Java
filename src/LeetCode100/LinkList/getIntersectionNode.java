@@ -1,7 +1,7 @@
 package LeetCode100.LinkList;
 
 public class getIntersectionNode {
-    public class Solution {
+    class Solution {
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
             // 两个指针初始化指向两个链表的头节点
 
