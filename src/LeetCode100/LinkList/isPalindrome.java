@@ -11,7 +11,7 @@ public class isPalindrome {
             ListNode currentNode = head;
             while(currentNode != null){
                 vals.add(currentNode.val);
-                currentNode = head.next;
+                currentNode = currentNode.next;
             }
             int end = vals.size() - 1;
             // 使用头尾双指针判断是否回文
