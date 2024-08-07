@@ -14,7 +14,7 @@ public class nSum {
                 int sum = nums[lo] + nums[hi];
                 int left = nums[lo], right = nums[hi];
                 if(sum == target){
-                    res.add(Arrays.asList(left, right));
+                    res.add(new ArrayList<>(Arrays.asList(left, right)));
                     while(lo < hi && left == nums[lo]) lo++;
                     while(lo < hi && right == nums[hi]) hi--;
                 }else if(sum < target){
