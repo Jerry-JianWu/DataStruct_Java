@@ -29,7 +29,7 @@ public class buildTreeInPo {
             TreeNode root = new TreeNode(rootVal);
 
             // 递归构造左右子树
-            root.left = build(inOrder, inStart, inEnd - 1,
+            root.left = build(inOrder, inStart, index - 1,
                     postOrder, postStart, postStart + leftSize - 1);
 
             root.right = build(inOrder, index + 1, inEnd,
