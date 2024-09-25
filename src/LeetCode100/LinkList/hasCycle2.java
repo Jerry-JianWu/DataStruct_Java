@@ -15,6 +15,7 @@ public class hasCycle2 {
                    break;
                }
             }
+            slow = head;
             if(hasCycle){
                 while(slow != fast){
                     slow = slow.next;
