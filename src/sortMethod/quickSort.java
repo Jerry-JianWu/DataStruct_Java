@@ -1,3 +1,5 @@
+package sortMethod;
+
 import java.util.Scanner;
 public class quickSort {
     public static void quickSort(int[] arr, int low, int high) {
