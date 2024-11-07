@@ -3,59 +3,36 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int n = Integer.parseInt(scanner.nextLine());
+        String[] strings = new String[n];
 
-        // Read inputs
-        long alpha = scanner.nextLong(); // α red bricks
-        long b = scanner.nextLong();     // b blue bricks
-        long c = scanner.nextLong();     // c green bricks
-        long x = scanner.nextLong();     // x red bricks can make 1 blue brick
-        long y = scanner.nextLong();     // y blue bricks can make 1 green brick
+        for (int i = 0; i < n; i++) {
+            strings[i] = scanner.nextLine();
+        }
 
-        // Binary search to find the maximum number of sets
-        long low = 0;
-        long high = alpha + b + c; // Upper limit for the number of sets
-        long maxSets = 0;
+        // 逐步求解前i个字符串的最长公共前缀
+        String prefix = strings[0];
+        System.out.println(prefix); // 第一个字符串的最长公共前缀就是它本身
 
-        while (low <= high) {
-            long mid = (low + high) / 2;
-
-            if (canAchieve(mid, alpha, b, c, x, y)) {
-                maxSets = mid;
-                low = mid + 1;
+        for (int i = 1; i < n; i++) {
+            prefix = longestCommonPrefix(prefix, strings[i]);
+            if (prefix.isEmpty()) {
+                System.out.println("-1");
             } else {
-                high = mid - 1;
+                System.out.println(prefix);
             }
         }
 
-        System.out.println(maxSets);
         scanner.close();
     }
 
-    // Function to check if 'mid' sets can be formed
-    private static boolean canAchieve(long mid, long alpha, long b, long c, long x, long y) {
-        if (mid > alpha) {
-            return false;
+    // 方法：计算两个字符串的最长公共前缀
+    private static String longestCommonPrefix(String s1, String s2) {
+        int minLength = Math.min(s1.length(), s2.length());
+        int i = 0;
+        while (i < minLength && s1.charAt(i) == s2.charAt(i)) {
+            i++;
         }
-
-        // Calculate extra blue bricks from red bricks
-        long extraRedBricks = alpha - mid;
-        long extraBlue = extraRedBricks / x;
-
-        long totalBlue = b + extraBlue;
-        if (totalBlue < mid) {
-            return false;
-        }
-
-        // Calculate extra green bricks from blue bricks
-        long blueBricksNeededForSets = mid;
-        long blueBricksAvailableForGreen = totalBlue - blueBricksNeededForSets;
-        long extraGreen = blueBricksAvailableForGreen / y;
-
-        long totalGreen = c + extraGreen;
-        if (totalGreen < mid) {
-            return false;
-        }
-
-        return true;
+        return s1.substring(0, i);
     }
 }

@@ -1,17 +1,35 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
+
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine(); // 读取输入的01字符串
+        int length = input.length();
+        int index = 0; // 当前处理到的字符串位置
+        int step = 1; // 当前要读取的字符数，初始为1
+        List<Integer> numbers = new ArrayList<>(); // 存储解析出来的数字
 
-        // Press Alt+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        while (index + step <= length) {
+            String substring = input.substring(index, index + step);
+            int number = Integer.parseInt(substring, 2); // 将二进制字符串转换为十进制数字
+            numbers.add(number);
+            index += step; // 移动索引位置
+            step++; // 增加要读取的字符数
+            if (step > 10) {
+                step = 1; // 当step超过10时，重置为1
+            }
+        }
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        // 输出结果
+        System.out.println(numbers.size());
+        for (int i = 0; i < numbers.size(); i++) {
+            System.out.print(numbers.get(i));
+            if (i != numbers.size() - 1) {
+                System.out.print(" ");
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ public class bubbleSort {
             for (int j = 0; j < n - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
-                    isSwapped = true
+                    isSwapped = true;
                 }
             }
             if (!isSwapped) {
