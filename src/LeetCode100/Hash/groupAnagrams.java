@@ -18,7 +18,7 @@ public class groupAnagrams {
             // 若不存在排序后的字符串键，则创建键值对，键为排序后的字符串，值为当前字符串
             map.put(key, new ArrayList<>());
         }
-        throw new IllegalArgumentException("no solution");
+        return new ArrayList<>(map.values());
 
     }
 
