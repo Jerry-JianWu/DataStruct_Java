@@ -18,10 +18,11 @@ public class longestConsecutive {
             }
             int longestStreak = 0;
             for (int num : numSet) {
+                // 只有当当前数字的前一个数字不在集合中时，才考虑它作为新的序列起点
                 if (!numSet.contains(num - 1)) {
                     int currentNum = num;
                     int currentStreak = 1;
-
+                    // 从当前数字开始，尝试向上构建连续序列，并计算长度
                     while (numSet.contains(currentNum + 1)) {
                         currentNum += 1;
                         currentStreak += 1;
