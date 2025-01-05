@@ -13,10 +13,10 @@ public class groupAnagrams {
             String key = String.copyValueOf(charArray);
             // 若存在排序后的字符串键，则将当前字符串添加到键对应的值中
             if(!map.containsKey(key)){
-                map.get(key).add(s);
+                map.put(key, new ArrayList<>());
             }
             // 若不存在排序后的字符串键，则创建键值对，键为排序后的字符串，值为当前字符串
-            map.put(key, new ArrayList<>());
+            map.get(key).add(s);
         }
         return new ArrayList<>(map.values());
 
