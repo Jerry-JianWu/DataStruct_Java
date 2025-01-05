@@ -14,7 +14,7 @@ public class twoSum {
             map.put(nums[i], i);
 
         }
-        throw new IllegalAccessException("No two sum solution");
+        return null;
 
     }
 }
