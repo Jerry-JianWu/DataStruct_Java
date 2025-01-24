@@ -27,3 +27,26 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# 忽略编译生成的文件
+*.class
+*.log
+*.tmp
+
+# 忽略操作系统生成的文件
+.DS_Store
+Thumbs.db
+
+# 忽略 IDE 相关文件
+.idea/
+*.iml
+*.vscode/
+
+# 忽略构建文件
+/build/
+out/
+target/
+
+# 忽略环境配置文件
+.env
+config.local.json
