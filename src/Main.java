@@ -6,30 +6,28 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine(); // 读取输入的01字符串
-        int length = input.length();
-        int index = 0; // 当前处理到的字符串位置
-        int step = 1; // 当前要读取的字符数，初始为1
-        List<Integer> numbers = new ArrayList<>(); // 存储解析出来的数字
+        int n = scanner.nextInt(); // 读取事件总数
+        Queue<Integer> queue = new LinkedList<>(); // 创建队列，存储顾客的估计服务时间
+        int totalTime = 0; // 估计服务时间总和
 
-        while (index + step <= length) {
-            String substring = input.substring(index, index + step);
-            int number = Integer.parseInt(substring, 2); // 将二进制字符串转换为十进制数字
-            numbers.add(number);
-            index += step; // 移动索引位置
-            step++; // 增加要读取的字符数
-            if (step > 10) {
-                step = 1; // 当step超过10时，重置为1
+        for (int i = 0; i < n; i++) {
+            int opt = scanner.nextInt(); // 读取事件类型
+
+            if (opt == 1) {
+                int x = scanner.nextInt(); // 读取新顾客的估计服务时间
+                // 输出当前排队人数和估计服务时间总和
+                System.out.println(queue.size() + " " + totalTime);
+                // 将新顾客加入队列尾端
+                queue.offer(x);
+                // 更新估计服务时间总和
+                totalTime += x;
+            } else if (opt == 2) {
+                // 从队列首端移除一位顾客
+                int servedCustomer = queue.poll();
+                // 更新估计服务时间总和
+                totalTime -= servedCustomer;
             }
         }
-
-        // 输出结果
-        System.out.println(numbers.size());
-        for (int i = 0; i < numbers.size(); i++) {
-            System.out.print(numbers.get(i));
-            if (i != numbers.size() - 1) {
-                System.out.print(" ");
-            }
-        }
+        scanner.close();
     }
 }
