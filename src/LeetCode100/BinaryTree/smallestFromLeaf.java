@@ -1,6 +1,7 @@
 package LeetCode100.BinaryTree;
 
 public class smallestFromLeaf {
+
     class Solution{
         public String smallestFromLeaf(TreeNode root){
             traverse(root);
