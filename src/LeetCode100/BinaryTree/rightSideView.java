@@ -30,4 +30,47 @@ public class rightSideView {
 
         }
     }
+
+    class Solution2{
+        public List<Integer> rightSideView(TreeNode root){
+            // 层序遍历先从右边遍历
+            List<Integer> res = new LinkedList<>();
+            if(root == null) return res;
+            Queue<TreeNode> q = new LinkedList<>();
+            q.offer(root);
+            while(!q.isEmpty()){
+                int size = q.size();
+                TreeNode rightNode = q.peek();
+                for (int i = 0; i < size; i++) {
+                    TreeNode currentNode = q.poll();
+                    if(currentNode.right != null) q.offer(currentNode.right);
+                    if(currentNode.left != null) q.offer(currentNode.left);
+
+                }
+                res.add(rightNode.val);
+            }
+            return res;
+        }
+    }
+
+    class Solution3{
+
+        List<Integer> res = new ArrayList<>();
+        int depth = 0;
+        public List<Integer> rightSideView_DFS(TreeNode root){
+            // dfs先遍历右子树
+            traverse(root);
+            return res;
+        }
+        void traverse(TreeNode root){
+            if(root == null) return ;
+            depth++;
+            if(res.size() < depth){
+                res.add(root.val) ;
+            }
+            traverse(root.right);
+            traverse(root.left);
+            depth--;
+        }
+    }
 }
