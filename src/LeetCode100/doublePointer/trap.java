@@ -43,4 +43,25 @@ public class trap {
         }
         return trapperWater;
     }
+
+    public int trap_2(int[] height){
+        int left = 0, right = height.length-1;
+        int leftMax = 0, rightMax = 0;
+        int res = 0;
+        while(left < right){
+            leftMax = Math.max(leftMax, height[left]);
+            rightMax = Math.max(rightMax, height[right]);
+            // 同样的储水量由左右两侧较矮的柱子决定，如果左最高小于右最高，
+            // 说明只能以左最高为最大高度储水，储水量就是 左侧最高-当前柱高
+            // 反之右侧较矮则以右侧为储水标准， 储水量是 右侧最高-当前柱高
+            if(leftMax < rightMax){
+                res += leftMax - height[left];
+                left++;
+            }else{
+                res += rightMax -height[right];
+                right--;
+            }
+        }
+        return res;
+    }
 }
