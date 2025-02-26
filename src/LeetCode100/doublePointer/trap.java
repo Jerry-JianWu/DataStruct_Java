@@ -6,6 +6,8 @@ package LeetCode100.doublePointer;
 思路：
 每个柱子能接的雨水量取决于其左右两边的最大高度中较小的一个减去当前柱子的高度。
 使用双指针来维护当前左右两侧的最大高度，避免额外空间的动态规划表。
+
+每一步的思路都是计算当前柱子能接多少雨水，而当前柱子能接多少雨水取决于左右两侧最小柱高。
 */
 public class trap {
     public int trap(int[] height){
@@ -61,6 +63,25 @@ public class trap {
                 res += rightMax -height[right];
                 right--;
             }
+        }
+        return res;
+    }
+    public int trap_dp(int[] height){
+        if(height.length == 0) return 0;
+        int n = height.length;
+        int res = 0;
+        int[] l_max = new int[n];
+        int[] r_max = new int[n];
+        l_max[0] = height[0];
+        r_max[n-1] = height[n-1];
+        for(int i = 1; i < n; i++){
+            l_max[i] = Math.max(height[i], l_max[i-1]);
+        }
+        for(int j = n-2; j >=0; j--){
+            r_max[j] = Math.max(height[j], r_max[j+1]);
+        }
+        for(int i = 1; i < n-1 ;i++){
+            res += Math.min(l_max[i], r_max[i]) - height[i];
         }
         return res;
     }
